@@ -1,8 +1,7 @@
 // app.js
-
 var express = require('express');
 var bodyParser = require('body-parser');
-
+const http = require('http')
 var product = require('./routes/product'); // Imports routes for the products
 var app = express();
 
@@ -19,9 +18,11 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use('/products', product);
-
+app.get('*', (req, res) => {
+    res.send('Hello from Express.js!')
+})
 var port = 1234;
-
-app.listen(port, () => {
-    console.log('Server is up and running on port numner ' + port);
-});
+app.listen()
+// app.listen(port, () => {
+//     console.log('Server is up and running on port numner ' + port);
+// });

@@ -1,0 +1,17 @@
+{
+    "version": 2,
+    "name": "PRODUCTSAPP",
+    "builds": [
+        {
+            "src": "testAbortApi.js",
+            "use": "@now/node-server"
+        },{
+            "src":"index.js",
+            "use":"@now/node-server"
+        },
+        {
+            "src": "./*/product.js",
+            "use": "@now/node-server"
+        }
+    ]
+}
